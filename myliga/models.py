@@ -11,3 +11,12 @@ class Manager(models.Model):
 
     def __str__(self):
         return self.first_name + " " + self.last_name
+
+
+class User(models.Model):
+    manager = models.ForeignKey(Manager)
+    username = models.CharField(max_length=50)
+    password = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.username
